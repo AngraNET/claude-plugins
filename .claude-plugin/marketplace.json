@@ -1,0 +1,22 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "angra-plugins",
+  "description": "Personal plugin marketplace for AngraNET Claude Code extensions",
+  "owner": {
+    "name": "AngraNET",
+    "email": ""
+  },
+  "plugins": [
+    {
+      "name": "para-workspaces",
+      "description": "PARA productivity methodology for Claude Code. Manage Projects, Areas, Resources, and Archives with calendar, email, and task integrations.",
+      "author": {
+        "name": "Community",
+        "email": ""
+      },
+      "source": "./plugins/para-workspaces",
+      "category": "productivity",
+      "homepage": "https://github.com/AngraNET/claude-plugins/tree/main/plugins/para-workspaces"
+    }
+  ]
+}
