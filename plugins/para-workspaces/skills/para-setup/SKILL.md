@@ -138,7 +138,26 @@ Ask: "Show PARA summary at the start of each Claude session? (y/n)"
 
 ---
 
-## Step 7: Write Settings
+## Step 7: Export PARA_DIR to shell
+
+Add the following to `~/.bashrc` (replace if a previous `PARA_DIR` export already exists):
+
+```bash
+export PARA_DIR="{para-dir}"
+```
+
+Run:
+```bash
+grep -q "^export PARA_DIR=" ~/.bashrc \
+  && sed -i "s|^export PARA_DIR=.*|export PARA_DIR=\"{para-dir}\"|" ~/.bashrc \
+  || echo 'export PARA_DIR="{para-dir}"' >> ~/.bashrc
+```
+
+Tell the user: "PARA_DIR has been added to ~/.bashrc. It will be available in all new shells. For the current session, run: `export PARA_DIR=\"{para-dir}\"`"
+
+---
+
+## Step 8: Write Settings
 
 Write `~/.claude/para-workspaces.local.md`:
 
