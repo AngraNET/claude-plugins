@@ -1,0 +1,11 @@
+{
+  "name": "para-workspaces",
+  "version": "1.0.0",
+  "description": "PARA productivity methodology for Claude Code. Manage Projects, Areas, Resources, and Archives with calendar, email, and task integrations.",
+  "author": {
+    "name": "Community",
+    "email": ""
+  },
+  "license": "MIT",
+  "keywords": ["para", "productivity", "gtd", "projects", "tasks", "calendar", "email"]
+}
