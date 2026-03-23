@@ -110,7 +110,7 @@ If no vision exists yet, ask if the user wants to draft one now (this is Part I 
 
 ### Step 5: Review Someday/Maybe Items
 
-Projects with `status: someday-maybe` in `{para-dir}/1-projects/` are ideas you're not committed to yet but don't want to lose.
+Projects with `status: someday-maybe` in `{para-dir}/01-projects/` are ideas you're not committed to yet but don't want to lose.
 
 For each:
 - Is this still interesting? → Keep as Someday/Maybe

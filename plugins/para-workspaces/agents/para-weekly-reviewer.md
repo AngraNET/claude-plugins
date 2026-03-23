@@ -81,7 +81,7 @@ For each file the user mentions:
 
 Review notes captured during the week.
 
-1. Check `{para-dir}/0-inbox/` for new captures
+1. Check `{para-dir}/00-inbox/` for new captures
 2. Count items: report how many are waiting
 3. Ask: "Would you like to process these now, or flag them for `/para:inbox` later?"
 4. If any notes were captured elsewhere (physical notebook, other apps), ask user to describe them — offer to add them to the inbox

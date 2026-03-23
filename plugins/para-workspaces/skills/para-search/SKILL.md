@@ -51,15 +51,15 @@ Search results for: "{query}"
 
 📂 PROJECTS (N matches)
   1. Website Redesign — title match
-     ~/para/1-projects/website-redesign/_index.md
+     ~/para/01-projects/website-redesign/_index.md
 
   2. SEO Improvement — body match (line 42)
-     ~/para/1-projects/seo-improvement/_index.md
+     ~/para/01-projects/seo-improvement/_index.md
      → "...{query} should be addressed in the meta tags..."
 
 📚 RESOURCES (N matches)
   3. CSS Grid Reference — tag match
-     ~/para/3-resources/css-grid-reference/_index.md
+     ~/para/03-resources/css-grid-reference/_index.md
 
 📅 CALENDAR (N matches)
   4. "{query} Review Meeting" — 2026-03-25 10:00

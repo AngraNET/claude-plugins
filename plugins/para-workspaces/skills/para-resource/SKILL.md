@@ -22,7 +22,7 @@ $ARGUMENTS
    - **Tags**: Any relevant tags?
    - **Source URL**: Is there a primary source or reference URL? (optional)
 
-2. Create directory: `{para-dir}/3-resources/{slugified-topic}/`
+2. Create directory: `{para-dir}/03-resources/{slugified-topic}/`
 
 3. Write `_index.md`:
 
@@ -80,7 +80,7 @@ tags: []
 
 ### `list`
 
-1. Read all resources from `3-resources/`
+1. Read all resources from `03-resources/`
 2. Display organized by tags if available:
 
 ```

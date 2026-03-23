@@ -87,11 +87,11 @@ export NOTION_API_TOKEN="your-integration-token"
 
 ```
 ~/para/              (configurable)
-├── 0-inbox/         Raw captures awaiting processing
-├── 1-projects/      Active projects with specific outcomes
-├── 2-areas/         Ongoing responsibilities
-├── 3-resources/     Reference material by topic
-├── 4-archives/      Completed/inactive items
+├── 00-inbox/         Raw captures awaiting processing
+├── 01-projects/      Active projects with specific outcomes
+├── 02-areas/         Ongoing responsibilities
+├── 03-resources/     Reference material by topic
+├── 04-archives/      Completed/inactive items
 └── reviews/         Weekly and monthly review logs
 ```
 

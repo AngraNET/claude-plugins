@@ -22,7 +22,7 @@ $ARGUMENTS
    - **Review frequency**: How often to review? (weekly / monthly / quarterly)
    - **Description**: Brief description of this area
 
-2. Create directory: `{para-dir}/2-areas/{slugified-name}/`
+2. Create directory: `{para-dir}/02-areas/{slugified-name}/`
 
 3. Write `_index.md`:
 
@@ -58,7 +58,7 @@ linked-projects: []
 
 1. Find and read the area `_index.md`
 2. Display full area card including standard, review frequency, last reviewed date
-3. Find all projects in `1-projects/` where `area:` matches this area name
+3. Find all projects in `01-projects/` where `area:` matches this area name
 4. Show those linked projects with their status and deadlines
 
 ---
@@ -73,7 +73,7 @@ linked-projects: []
 
 ### `list`
 
-1. Read all areas from `2-areas/`
+1. Read all areas from `02-areas/`
 2. Display table:
 
 ```

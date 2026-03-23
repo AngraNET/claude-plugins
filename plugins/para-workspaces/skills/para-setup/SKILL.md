@@ -49,11 +49,11 @@ Ask: "Do you have existing notes or files to migrate? (y/n)"
 
 If yes:
 - Ask where they are (directory path)
-- Create: `{para-dir}/4-archives/Archive-{YYYY-MM-DD}/`
+- Create: `{para-dir}/04-archives/Archive-{YYYY-MM-DD}/`
 - Ask: "Move all files from {path} into this archive? This is reversible — nothing gets deleted. (y/n)"
 - If confirmed, run:
   ```bash
-  cp -r "{source-path}/." "{para-dir}/4-archives/Archive-{YYYY-MM-DD}/"
+  cp -r "{source-path}/." "{para-dir}/04-archives/Archive-{YYYY-MM-DD}/"
   ```
 - Confirm: "Your existing files are archived. You're starting fresh."
 
@@ -64,17 +64,17 @@ If yes:
 Create:
 ```
 {para-dir}/
-├── 0-inbox/
+├── 00-inbox/
 │   └── someday-maybe/
-├── 1-projects/
-├── 2-areas/
-├── 3-resources/
-├── 4-archives/
-├── 5-reviews/
-└── 6-memory/
+├── 01-projects/
+├── 02-areas/
+├── 03-resources/
+├── 04-archives/
+├── 05-reviews/
+└── 06-memory/
 ```
 
-Also create `{para-dir}/5-reviews/life-goals.md`:
+Also create `{para-dir}/05-reviews/life-goals.md`:
 
 ```markdown
 ---
@@ -93,7 +93,7 @@ last-updated: {today}
 ## Archived Goals
 ```
 
-And `{para-dir}/5-reviews/personal-vision.md`:
+And `{para-dir}/05-reviews/personal-vision.md`:
 
 ```markdown
 ---
@@ -118,7 +118,7 @@ If `~/.local/bin` is not already in `$PATH`, add it:
 grep -q '\.local/bin' ~/.bashrc || echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.bashrc
 ```
 
-Then create a reference note at `{para-dir}/3-resources/tools/start-brain.md`:
+Then create a reference note at `{para-dir}/03-resources/tools/start-brain.md`:
 
 ```markdown
 ---
@@ -153,13 +153,13 @@ This is a personal knowledge management vault using the PARA system (Projects, A
 ## Vault Structure
 
 \`\`\`
-0-inbox/        — Unprocessed captures, pending triage
-1-projects/     — Active projects (specific outcome + end date)
-2-areas/        — Ongoing responsibilities (no end date)
-3-resources/    — Reference material by topic
-4-archives/     — Completed/inactive items from all categories
-5-reviews/      — Weekly, monthly, annual review documents + life goals
-6-memory/       — Claude's persistent memory for this vault
+00-inbox/        — Unprocessed captures, pending triage
+01-projects/     — Active projects (specific outcome + end date)
+02-areas/        — Ongoing responsibilities (no end date)
+03-resources/    — Reference material by topic
+04-archives/     — Completed/inactive items from all categories
+05-reviews/      — Weekly, monthly, annual review documents + life goals
+06-memory/       — Claude's persistent memory for this vault
 \`\`\`
 
 ## Skills to Use
@@ -186,7 +186,7 @@ This vault has the `para-workspaces` plugin installed. Always prefer its skills 
 - All notes are Markdown (`.md`)
 - Files use YAML frontmatter for metadata
 - Dates use ISO format: `YYYY-MM-DD`
-- Project folders live under `1-projects/<NN>-<project-slug>/` (e.g. `00-my-project`, `01-next-project`)
+- Project folders live under `01-projects/<NN>-<project-slug>/` (e.g. `00-my-project`, `01-next-project`)
 - Each project has an `_index.md` as its main file
 
 ## Common Frontmatter Fields
@@ -229,10 +229,10 @@ On startup in this vault:
 1. Derive the Claude project memory path from the vault path (replace `/` with `-` in the path, prefix with `~/.claude/projects/`, append `/memory/`).
 2. Check that directory for any `.md` files.
 3. If files exist, ask: "I found memory files in `~/.claude`. Move them into your PARA vault at `memory/` so they follow OneDrive? (y/n)"
-4. If confirmed: move all files to `{para-dir}/6-memory/`, delete the originals from `~/.claude`, then confirm to the user.
-5. Read memory from `{para-dir}/6-memory/` at the start of each session.
+4. If confirmed: move all files to `{para-dir}/06-memory/`, delete the originals from `~/.claude`, then confirm to the user.
+5. Read memory from `{para-dir}/06-memory/` at the start of each session.
 
-Always write new memories to `{para-dir}/6-memory/` and keep `{para-dir}/6-memory/MEMORY.md` up to date as the index.
+Always write new memories to `{para-dir}/06-memory/` and keep `{para-dir}/06-memory/MEMORY.md` up to date as the index.
 
 ## Behavioural Guidelines
 

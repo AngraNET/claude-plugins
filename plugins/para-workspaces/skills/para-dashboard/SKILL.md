@@ -23,18 +23,18 @@ $ARGUMENTS (optional: `--brief` for summary only, `--full` for all details)
    ```
    Otherwise, manually count items in each PARA bucket.
 
-3. Read all `_index.md` files under `1-projects/` and display:
+3. Read all `_index.md` files under `01-projects/` and display:
    - Project name, status, goal (one line), deadline, completion-pct, next-action
    - Flag projects past their deadline with ⚠ OVERDUE
    - Flag projects not updated in >14 days with ⚡ STALE
 
-4. List areas from `2-areas/` with their standard and last-reviewed date
+4. List areas from `02-areas/` with their standard and last-reviewed date
 
-5. Show resource count by topic from `3-resources/`
+5. Show resource count by topic from `03-resources/`
 
-6. Show inbox count from `0-inbox/` — if >0 items, suggest running `/para:inbox`
+6. Show inbox count from `00-inbox/` — if >0 items, suggest running `/para:inbox`
 
-7. Show archive count from `4-archives/`
+7. Show archive count from `04-archives/`
 
 ## Output Format
 

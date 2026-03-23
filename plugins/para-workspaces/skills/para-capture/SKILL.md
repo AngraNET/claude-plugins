@@ -37,7 +37,7 @@ What's worth capturing:
 4. Generate a filename: `{YYYY-MM-DD}-{HHmmss}-{slug}.md`
    where slug = first 4–5 meaningful words, hyphenated, lowercase
 
-5. Write the file to `{para-dir}/0-inbox/`:
+5. Write the file to `{para-dir}/00-inbox/`:
 
 ```markdown
 ---

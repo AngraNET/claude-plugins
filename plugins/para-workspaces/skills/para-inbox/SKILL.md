@@ -30,7 +30,7 @@ This order is intentional. Information has the most value when it's closest to a
 ## Instructions
 
 1. Read `para-dir` from settings (default: `~/para`)
-2. List all `.md` files in `{para-dir}/0-inbox/` sorted by `captured-at` oldest first
+2. List all `.md` files in `{para-dir}/00-inbox/` sorted by `captured-at` oldest first
 3. If inbox is empty: "Inbox is empty. Nothing to process." and stop.
 
 4. For each item, show:
@@ -67,7 +67,7 @@ Route this to:
    - Delete inbox file.
 
    **S - Someday/Maybe**: Ask for brief label.
-   - Move file to `{para-dir}/0-inbox/someday-maybe/` with the label added to frontmatter.
+   - Move file to `{para-dir}/00-inbox/someday-maybe/` with the label added to frontmatter.
    - These surface during monthly reviews.
 
    **X - Don't save**: Confirm once ("This will be deleted. Confirm? y/n"), then delete.

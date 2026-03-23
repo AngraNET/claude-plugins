@@ -46,7 +46,7 @@ Projects where `last-updated` < 14 days ago AND `status: active`
 → Flag as STALE
 
 ### 4. Overflowing Inbox
-More than 5 items in `0-inbox/`
+More than 5 items in `00-inbox/`
 → Flag as INBOX OVERFLOWING
 
 ### 5. Areas Overdue for Review
@@ -57,7 +57,7 @@ Areas where `last-reviewed` is past their `review-frequency`:
 → Flag as REVIEW DUE
 
 ### 6. No Active Projects
-If `1-projects/` has no active projects at all
+If `01-projects/` has no active projects at all
 → Flag as NO ACTIVE PROJECTS
 
 ## Output Format

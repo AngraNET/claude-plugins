@@ -63,13 +63,13 @@ From Resource "Copywriting":
 
 5. Ask: "Should I assemble these into a starting draft?"
 6. If yes: create a new file in the project directory as an Intermediate Packet:
-   `{para-dir}/1-projects/{project}/packets/{YYYY-MM-DD}-{slug}.md`
+   `{para-dir}/01-projects/{project}/packets/{YYYY-MM-DD}-{slug}.md`
 
 ### Mode 2: Track Intermediate Packets for a project
 
 If user wants to see or manage their work packets for a project:
 
-1. List all files in `{para-dir}/1-projects/{project}/packets/`
+1. List all files in `{para-dir}/01-projects/{project}/packets/`
 2. Show creation date, title, and a one-line summary of each
 3. Ask: "Create a new packet, or open an existing one?"
 
