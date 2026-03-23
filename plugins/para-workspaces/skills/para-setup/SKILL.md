@@ -181,6 +181,25 @@ This vault has the `para-workspaces` plugin installed. Always prefer its skills 
 | Archive an item | `para-workspaces:para-archive` |
 | Manage tasks | `para-workspaces:para-tasks` |
 
+## Project File Convention — Source Repository Section
+
+Every project `_index.md` that has an associated source repository **must** include a `## Source Repository` section near the top (after the goal, before Background). This lets Claude find the source without searching.
+
+\`\`\`markdown
+## Source Repository
+
+| | |
+|---|---|
+| **VCS** | git \| mercurial \| svn \| other |
+| **Remote** | \`<url>\` |
+| **Local path** | \`/path/to/local/clone\` |
+| **Subdirectory** | \`<subdirectory if applicable>\` |
+
+> When asked to commit, push, or edit code for this project — use **Local path** above. Do not search.
+\`\`\`
+
+When creating a new project (`/para:project new`), Claude detects code projects automatically (by keywords such as app, plugin, script, API, repo, build, deploy, library, CLI) or asks the user. If a repository exists, it prompts for VCS type, remote URL, local path, and optional subdirectory before writing `_index.md`.
+
 ## File Conventions
 
 - All notes are Markdown (`.md`)
