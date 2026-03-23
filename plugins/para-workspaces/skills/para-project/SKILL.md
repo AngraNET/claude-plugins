@@ -30,7 +30,17 @@ Manage projects in the PARA system.
 
 2. If the user can't define a specific outcome or deadline, gently ask: "Could this be an Area of Responsibility instead? Areas are ongoing standards with no endpoint."
 
-3. Determine the next project number:
+3. **Detect or ask about a source repository:**
+   - If the project name, goal, or context suggests a code project (e.g. mentions of app, plugin, script, API, repo, build, deploy, library, CLI), ask: "Does this project have a source repository?"
+   - Otherwise skip this question (repository section will be omitted from `_index.md`)
+   - If yes, ask for:
+     - **VCS type**: git / mercurial / svn / other / none
+     - **Remote URL**: (e.g. `github.com/org/repo`) — optional
+     - **Local path**: (e.g. `/home/danie/projects/my-repo`) — optional
+     - **Subdirectory**: within the repo if the project only covers part of it — optional
+   - Save as `repo-type`, `repo-remote`, `repo-local`, `repo-subdir`
+
+4. Determine the next project number:
    - List all directories in `{para-dir}/01-projects/` matching the pattern `[0-9][0-9]-*`
    - Find the highest two-digit prefix (e.g. `03` from `03-my-project`)
    - Increment by 1 and zero-pad to 2 digits (e.g. `04`)
@@ -68,6 +78,21 @@ review-log: []
 ## Goal
 
 {One-sentence specific outcome — the finish line}
+
+[## Source Repository]: # (include this section only if a repo was provided)
+
+## Source Repository
+
+| | |
+|---|---|
+| **VCS** | {git \| mercurial \| svn \| other} |
+| **Remote** | `{repo-remote}` |
+| **Local path** | `{repo-local}` |
+| **Subdirectory** | `{repo-subdir}` |
+
+> When asked to commit, push, or edit code for this project — use **Local path** above. Do not search.
+
+[end optional section]: #
 
 ## Background
 
