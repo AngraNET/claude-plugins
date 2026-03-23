@@ -30,10 +30,17 @@ Manage projects in the PARA system.
 
 2. If the user can't define a specific outcome or deadline, gently ask: "Could this be an Area of Responsibility instead? Areas are ongoing standards with no endpoint."
 
-3. Create directory: `{para-dir}/1-projects/{slugified-name}/`
-   Also create: `{para-dir}/1-projects/{slugified-name}/packets/` (for Intermediate Packets)
+3. Determine the next project number:
+   - List all directories in `{para-dir}/1-projects/` matching the pattern `[0-9][0-9]-*`
+   - Find the highest two-digit prefix (e.g. `03` from `03-my-project`)
+   - Increment by 1 and zero-pad to 2 digits (e.g. `04`)
+   - If no numbered projects exist yet, start at `00`
+   - Final folder name: `{NN}-{slugified-name}` (e.g. `04-my-project`)
 
-4. Write `_index.md`:
+4. Create directory: `{para-dir}/1-projects/{NN}-{slugified-name}/`
+   Also create: `{para-dir}/1-projects/{NN}-{slugified-name}/packets/` (for Intermediate Packets)
+
+5. Write `_index.md`:
 
 ```markdown
 ---
@@ -72,7 +79,7 @@ review-log: []
 
 ```
 
-5. Confirm and remind: "Add tasks with `/para:tasks add {name} <task>` — or capture ideas with `/para:capture`"
+6. Confirm and remind: "Add tasks with `/para:tasks add {name} <task>` — or capture ideas with `/para:capture`"
 
 ---
 

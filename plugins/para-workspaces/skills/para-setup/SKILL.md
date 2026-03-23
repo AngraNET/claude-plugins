@@ -186,8 +186,8 @@ This vault has the `para-workspaces` plugin installed. Always prefer its skills 
 - All notes are Markdown (`.md`)
 - Files use YAML frontmatter for metadata
 - Dates use ISO format: `YYYY-MM-DD`
-- Project folders live under `1-projects/<project-slug>/`
-- Each project has an `index.md` as its main file
+- Project folders live under `1-projects/<NN>-<project-slug>/` (e.g. `00-my-project`, `01-next-project`)
+- Each project has an `_index.md` as its main file
 
 ## Common Frontmatter Fields
 
