@@ -113,21 +113,57 @@ last-updated: {today}
 Ask: "Which task backend do you want to use?"
 - [1] Google Tasks (shared OAuth with Calendar/Gmail)
 - [2] Todoist (separate API token)
+- [3] Microsoft To Do (shared OAuth with Outlook Calendar/Mail)
+- [4] None for now
+
+---
+
+## Step 4b: Email Backend
+
+Ask: "Which email backend do you want to use?"
+- [1] Gmail (shared OAuth with Google Calendar/Tasks)
+- [2] Outlook / Microsoft 365 (shared OAuth with Outlook Calendar/Tasks)
 - [3] None for now
+
+Save as `email-backend` (gmail|outlook|none).
+
+---
+
+## Step 4c: Calendar Backend
+
+Ask: "Which calendar backend do you want to use?"
+- [1] Google Calendar (shared OAuth with Gmail/Tasks)
+- [2] Outlook Calendar / Microsoft 365 (shared OAuth with Mail/Tasks)
+- [3] None for now
+
+Save as `calendar-backend` (google|outlook|none).
 
 ---
 
 ## Step 5: Integration Credentials
 
-For Google (Calendar + Gmail + Tasks):
-- Explain: "You need a Google OAuth refresh token. Set up a Google Cloud project, enable Calendar/Gmail/Tasks APIs, create OAuth2 credentials (Desktop app), and complete the OAuth flow."
+### Google credentials (if any Google service was selected)
+
+- Explain: "You need a Google OAuth refresh token. Set up a Google Cloud project, enable the Calendar/Gmail/Tasks APIs, create OAuth2 credentials (Desktop app), and complete the OAuth flow."
 - Ask for: `GOOGLE_CLIENT_ID`, `GOOGLE_CLIENT_SECRET`, `GOOGLE_REFRESH_TOKEN`
 - Suggest adding to `~/.bashrc` or `~/.zshrc`
 
-For Todoist:
+### Microsoft credentials (if any Microsoft/Outlook service was selected)
+
+Read the companion file and follow its steps:
+
+```
+{skill-base-dir}/references/ms-setup.md
+```
+
+Where `{skill-base-dir}` is the base directory shown in the skill header at the top of this conversation (e.g. `~/.claude/plugins/cache/.../skills/para-setup/`). Use the Read tool to load it before proceeding.
+
+### Todoist credentials (if Todoist was selected)
+
 - Ask for: `TODOIST_API_TOKEN` (from todoist.com/app/settings/integrations/developer)
 
-For Notion (optional):
+### Notion (optional)
+
 - Ask: "Enable Notion sync? (y/n)"
 
 ---
@@ -165,7 +201,9 @@ Write `~/.claude/para-workspaces.local.md`:
 ---
 enabled: true
 para-dir: "{para-dir}"
-task-backend: {google-tasks|todoist|none}
+task-backend: {google-tasks|todoist|microsoft-todo|none}
+email-backend: {gmail|outlook|none}
+calendar-backend: {google|outlook|none}
 show-dashboard-on-start: {true|false}
 inbox-reminder: true
 log-sessions: false
@@ -176,6 +214,7 @@ notion-enabled: {true|false}
 # PARA Workspaces Configuration
 ```
 
+
 ---
 
 ## Step 8: Confirm
@@ -184,10 +223,10 @@ notion-enabled: {true|false}
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 PARA Workspaces ready!
 
-Vault:    {para-dir}
-Tasks:    {backend}
-Calendar: {enabled|not configured}
-Email:    {enabled|not configured}
+Vault:     {para-dir}
+Tasks:     {task-backend}
+Email:     {email-backend}
+Calendar:  {calendar-backend}
 
 What to do next:
   /para              — see your dashboard

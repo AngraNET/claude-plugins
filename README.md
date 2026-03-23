@@ -29,9 +29,12 @@ Each plugin follows the Claude Code plugin standard:
 plugin-name/
 ├── .claude-plugin/
 │   └── plugin.json
-├── .mcp.json            (optional)
-├── skills/              (optional)
-├── agents/              (optional)
-├── hooks/               (optional)
+├── .mcp.json                  (optional)
+├── skills/                    (optional)
+│   └── skill-name/
+│       ├── SKILL.md
+│       └── references/        (optional — companion files loaded on demand)
+├── agents/                    (optional)
+├── hooks/                     (optional)
 └── README.md
 ```

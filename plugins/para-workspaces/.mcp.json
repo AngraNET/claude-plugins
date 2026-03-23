@@ -47,6 +47,16 @@
       "env": {
         "NOTION_API_TOKEN": "${NOTION_API_TOKEN}"
       }
+    },
+    "microsoft-graph": {
+      "command": "npx",
+      "args": ["-y", "mcp-server-msgraph"],
+      "env": {
+        "MS_CLIENT_ID": "${MS_CLIENT_ID}",
+        "MS_CLIENT_SECRET": "${MS_CLIENT_SECRET}",
+        "MS_REFRESH_TOKEN": "${MS_REFRESH_TOKEN}",
+        "MS_TENANT_ID": "${MS_TENANT_ID}"
+      }
     }
   }
 }
