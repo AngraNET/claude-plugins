@@ -70,11 +70,11 @@ Create:
 ├── 2-areas/
 ├── 3-resources/
 ├── 4-archives/
-├── reviews/
-└── memory/
+├── 5-reviews/
+└── 6-memory/
 ```
 
-Also create `{para-dir}/reviews/life-goals.md`:
+Also create `{para-dir}/5-reviews/life-goals.md`:
 
 ```markdown
 ---
@@ -93,7 +93,7 @@ last-updated: {today}
 ## Archived Goals
 ```
 
-And `{para-dir}/reviews/personal-vision.md`:
+And `{para-dir}/5-reviews/personal-vision.md`:
 
 ```markdown
 ---
@@ -158,8 +158,8 @@ This is a personal knowledge management vault using the PARA system (Projects, A
 2-areas/        — Ongoing responsibilities (no end date)
 3-resources/    — Reference material by topic
 4-archives/     — Completed/inactive items from all categories
-reviews/        — Weekly, monthly, annual review documents + life goals
-memory/         — Claude's persistent memory for this vault
+5-reviews/      — Weekly, monthly, annual review documents + life goals
+6-memory/       — Claude's persistent memory for this vault
 \`\`\`
 
 ## Skills to Use
@@ -229,10 +229,10 @@ On startup in this vault:
 1. Derive the Claude project memory path from the vault path (replace `/` with `-` in the path, prefix with `~/.claude/projects/`, append `/memory/`).
 2. Check that directory for any `.md` files.
 3. If files exist, ask: "I found memory files in `~/.claude`. Move them into your PARA vault at `memory/` so they follow OneDrive? (y/n)"
-4. If confirmed: move all files to `{para-dir}/memory/`, delete the originals from `~/.claude`, then confirm to the user.
-5. Read memory from `{para-dir}/memory/` at the start of each session.
+4. If confirmed: move all files to `{para-dir}/6-memory/`, delete the originals from `~/.claude`, then confirm to the user.
+5. Read memory from `{para-dir}/6-memory/` at the start of each session.
 
-Always write new memories to `{para-dir}/memory/` and keep `{para-dir}/memory/MEMORY.md` up to date as the index.
+Always write new memories to `{para-dir}/6-memory/` and keep `{para-dir}/6-memory/MEMORY.md` up to date as the index.
 
 ## Behavioural Guidelines
 
