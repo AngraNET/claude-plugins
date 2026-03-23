@@ -226,12 +226,13 @@ created: YYYY-MM-DD
 Claude's persistent memory for this vault lives in `memory/` at the vault root (not in `~/.claude`).
 
 On startup in this vault:
-1. Check `~/.claude/projects/<para-project-id>/memory/` for any memory files.
-2. If files exist there, ask the user: "I found memory files in `~/.claude`. Would you like me to move them into your PARA vault at `memory/`?"
-3. If confirmed, move all files from the Claude memory dir into `{para-dir}/memory/` and update `{para-dir}/memory/MEMORY.md` as the index.
-4. Read memory from `{para-dir}/memory/` at the start of each session.
+1. Derive the Claude project memory path from the vault path (replace `/` with `-` in the path, prefix with `~/.claude/projects/`, append `/memory/`).
+2. Check that directory for any `.md` files.
+3. If files exist, ask: "I found memory files in `~/.claude`. Move them into your PARA vault at `memory/` so they follow OneDrive? (y/n)"
+4. If confirmed: move all files to `{para-dir}/memory/`, delete the originals from `~/.claude`, then confirm to the user.
+5. Read memory from `{para-dir}/memory/` at the start of each session.
 
-Write new memories to `{para-dir}/memory/` and keep `{para-dir}/memory/MEMORY.md` up to date as the index.
+Always write new memories to `{para-dir}/memory/` and keep `{para-dir}/memory/MEMORY.md` up to date as the index.
 
 ## Behavioural Guidelines
 
