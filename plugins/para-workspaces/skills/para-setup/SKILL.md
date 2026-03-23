@@ -70,7 +70,8 @@ Create:
 ├── 2-areas/
 ├── 3-resources/
 ├── 4-archives/
-└── reviews/
+├── reviews/
+└── memory/
 ```
 
 Also create `{para-dir}/reviews/life-goals.md`:
@@ -158,6 +159,7 @@ This is a personal knowledge management vault using the PARA system (Projects, A
 3-resources/    — Reference material by topic
 4-archives/     — Completed/inactive items from all categories
 reviews/        — Weekly, monthly, annual review documents + life goals
+memory/         — Claude's persistent memory for this vault
 \`\`\`
 
 ## Skills to Use
@@ -218,6 +220,18 @@ topic: <topic>
 created: YYYY-MM-DD
 ---
 \`\`\`
+
+## Memory
+
+Claude's persistent memory for this vault lives in `memory/` at the vault root (not in `~/.claude`).
+
+On startup in this vault:
+1. Check `~/.claude/projects/<para-project-id>/memory/` for any memory files.
+2. If files exist there, ask the user: "I found memory files in `~/.claude`. Would you like me to move them into your PARA vault at `memory/`?"
+3. If confirmed, move all files from the Claude memory dir into `{para-dir}/memory/` and update `{para-dir}/memory/MEMORY.md` as the index.
+4. Read memory from `{para-dir}/memory/` at the start of each session.
+
+Write new memories to `{para-dir}/memory/` and keep `{para-dir}/memory/MEMORY.md` up to date as the index.
 
 ## Behavioural Guidelines
 
