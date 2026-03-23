@@ -145,12 +145,49 @@ else
     echo "Patched: outlook-auth-server.js (consumers endpoint)"
   fi
 
-  # Fix 2: task lists query uses $orderby which is not supported by the To-Do lists endpoint.
-  # Without this fix, all task operations (list, create) silently return no output.
+  # Fix 2: me/todo/lists rejects $select and $orderby OData params — causes silent 400
+  # failures on every task operation (list, create). Remove all query params from
+  # task list lookups so the endpoint returns all fields with no filtering.
   sed -i "/'\\$orderby': 'displayName asc'/d" "$MCP_DIR/tasks/lists.js"
-  echo "Patched: tasks/lists.js (removed unsupported \$orderby)"
+  sed -i "/'\\$select': 'id,displayName,isOwner,isShared,wellknownListName'/d" "$MCP_DIR/tasks/lists.js"
+  sed -i "s|{ '\\$select': 'id,displayName,isOwner' }|{}|g" "$MCP_DIR/tasks/create.js"
+  sed -i "s|{ '\\$select': 'id,displayName,isOwner' }|{}|g" "$MCP_DIR/tasks/list.js"
+  echo "Patched: tasks/*.js (removed unsupported OData params from task list queries)"
+
+  # Fix 3: callGraphAPI uses URLSearchParams which encodes $ to %24, breaking OData params
+  # on strict endpoints like me/todo/lists. Build query string manually to keep $ unencoded.
+  node -e "
+    const fs = require('fs');
+    const file = '$MCP_DIR/utils/graph-api.js';
+    let src = fs.readFileSync(file, 'utf8');
+    const oldBlock = /\/\/ Build query string from parameters.*?console\.error\(\`Query string: \\\${queryString}\`\);\s*\}/s;
+    const newBlock = \`// Build query string — OData keys (\\\$select, \\\$filter, \\\$top etc.) must NOT
+    // have their \\\$ encoded, so we avoid URLSearchParams and build manually.
+    let queryString = '';
+    if (Object.keys(queryParams).length > 0) {
+      const parts = [];
+      for (const [key, value] of Object.entries(queryParams)) {
+        if (key === '\\\$filter') {
+          parts.push('\\\$filter=' + encodeURIComponent(value));
+        } else {
+          parts.push(key + '=' + encodeURIComponent(String(value)));
+        }
+      }
+      queryString = '?' + parts.join('&');
+      console.error('Query string: ' + queryString);
+    }\`;
+    src = src.replace(oldBlock, newBlock);
+    fs.writeFileSync(file, src);
+    console.log('Patched: utils/graph-api.js (OData query string encoding)');
+  " 2>/dev/null || echo "graph-api.js patch skipped (may already be applied)"
 fi
 ```
+
+  # Fix 4: getAccessToken() skips expiry check on cached token — after 1 hour the MCP
+  # serves a stale token until restarted. Patch to always re-validate expiry.
+  sed -i 's|function getAccessToken() {|function getAccessToken() {\n  // Invalidate cache if token is expired so loadTokenCache() re-reads the file\n  if (cachedTokens \&\& Date.now() > (cachedTokens.expires_at || 0)) { cachedTokens = null; }|' \
+    "$MCP_DIR/auth/token-manager.js"
+  echo "Patched: auth/token-manager.js (cache expiry validation)"
 
 > **WSL2 note:** If the MCP ever shows a re-auth URL pointing to `http://localhost:3333/...`, open it
 > using your WSL2 IP instead of `localhost`. Get your WSL2 IP with: `hostname -I | awk '{print $1}'`
