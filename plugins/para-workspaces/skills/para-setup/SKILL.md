@@ -308,7 +308,15 @@ Save as `calendar-backend` (google|outlook|none).
 
 ### Microsoft credentials (if any Microsoft/Outlook service was selected)
 
-Read the companion file and follow its steps:
+First, deploy the OAuth helper scripts:
+
+```bash
+cp {skill-base-dir}/references/ms-oauth.py ~/.claude/ms-oauth.py
+cp {skill-base-dir}/references/ms-add-scope.py ~/.claude/ms-add-scope.py
+chmod +x ~/.claude/ms-oauth.py ~/.claude/ms-add-scope.py
+```
+
+Then read the companion file and follow its steps:
 
 ```
 {skill-base-dir}/references/ms-setup.md
@@ -372,10 +380,32 @@ notion-enabled: {true|false}
 # PARA Workspaces Configuration
 ```
 
+---
+
+## Step 9: Write `.mcp.json` and enable MCP servers
+
+Based on the backends the user selected, write `{para-dir}/.mcp.json` containing only the relevant servers. `filesystem` is always included. Map backends to servers:
+
+- `email-backend: outlook` OR `calendar-backend: outlook` OR `task-backend: microsoft-todo` → include `outlook`
+- `email-backend: gmail` → include `gmail`
+- `calendar-backend: google` → include `google-calendar`
+- `task-backend: google-tasks` → include `google-tasks`
+- `task-backend: todoist` → include `todoist`
+- `notion-enabled: true` → include `notion`
+
+Copy only the matching server entries from the plugin's master `.mcp.json` (at `{skill-base-dir}/../../.mcp.json`) into `{para-dir}/.mcp.json`. Always include `filesystem`.
+
+Then update `{para-dir}/.claude/settings.local.json` to add `enabledMcpjsonServers` containing the names of all servers you just wrote (so Claude Code approves them without prompting). Create the file if it doesn't exist, or merge into the existing `enabledMcpjsonServers` array if it does:
+
+```json
+{
+  "enabledMcpjsonServers": ["filesystem", "outlook"]
+}
+```
 
 ---
 
-## Step 8: Confirm
+## Step 10: Confirm
 
 ```
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

@@ -52,10 +52,14 @@ Run and capture `APP_ID` (this is `MS_CLIENT_ID`):
 APP_ID=$(az ad app create \
   --display-name "PARA Claude" \
   --sign-in-audience PersonalMicrosoftAccount \
-  --web-redirect-uris "http://localhost:8765" \
+  --web-redirect-uris "http://localhost:8765" "http://localhost:3333/auth/callback" \
   --query appId -o tsv)
 echo "MS_CLIENT_ID=$APP_ID"
 ```
+
+Both redirect URIs are registered:
+- `http://localhost:8765` — used by `ms-oauth.py` and `ms-add-scope.py` for setup and scope upgrades
+- `http://localhost:3333/auth/callback` — used by the `outlook-mcp` auth server for re-authentication
 
 ---
 
@@ -118,6 +122,44 @@ After the user confirms, verify the token was written:
 ```bash
 cat /tmp/ms_tokens.txt
 ```
+
+---
+
+## Step MS-7.5: Patch `outlook-mcp` bugs
+
+The `outlook-mcp` package has two bugs that must be patched after installation.
+Run this block — it locates the package dynamically and applies both fixes:
+
+```bash
+MCP_DIR=$(find ~/.npm/_npx -name "outlook-auth-server.js" 2>/dev/null | head -1 | xargs dirname 2>/dev/null)
+
+if [ -z "$MCP_DIR" ]; then
+  echo "outlook-mcp not found — skipping patches (will need to re-run after first MCP use)"
+else
+  # Fix 1: auth server hardcodes /common/ endpoint — rejected by personal Microsoft accounts.
+  # Manual workaround would be: Azure portal → App registrations → Authentication →
+  # change Supported account types to AzureADandPersonalMicrosoftAccount.
+  # This patch keeps the app scoped to personal accounts only — no portal change required.
+  if [ "$MS_TENANT_ID" = "consumers" ]; then
+    sed -i 's|microsoftonline.com/common/|microsoftonline.com/consumers/|g' "$MCP_DIR/outlook-auth-server.js"
+    echo "Patched: outlook-auth-server.js (consumers endpoint)"
+  fi
+
+  # Fix 2: task lists query uses $orderby which is not supported by the To-Do lists endpoint.
+  # Without this fix, all task operations (list, create) silently return no output.
+  sed -i "/'\\$orderby': 'displayName asc'/d" "$MCP_DIR/tasks/lists.js"
+  echo "Patched: tasks/lists.js (removed unsupported \$orderby)"
+fi
+```
+
+> **WSL2 note:** If the MCP ever shows a re-auth URL pointing to `http://localhost:3333/...`, open it
+> using your WSL2 IP instead of `localhost`. Get your WSL2 IP with: `hostname -I | awk '{print $1}'`
+> Then open: `http://<WSL2-IP>:3333/auth?client_id=<your-client-id>`
+>
+> The auth server must be running. Start it with:
+> ```bash
+> MS_CLIENT_ID="$MS_CLIENT_ID" MS_CLIENT_SECRET="$MS_CLIENT_SECRET" node "$MCP_DIR/outlook-auth-server.js" &
+> ```
 
 ---
 

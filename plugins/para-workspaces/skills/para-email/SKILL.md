@@ -194,6 +194,21 @@ Create these tasks? [y / n / edit]
 
 **Phase 3 — Create tasks (only after confirmation)**
 
+**Scope check (Microsoft To Do only):**
+If `task-backend` is `microsoft-todo`, check the `MS_SCOPES` environment variable for `Tasks.ReadWrite`:
+
+```bash
+echo $MS_SCOPES | grep -q "Tasks.ReadWrite"
+```
+
+If missing:
+1. Tell the user: "Your Microsoft token has read-only task access. To create tasks, we need to upgrade the permission — this opens a browser consent prompt."
+2. Ask: "Upgrade now? (y/n)"
+3. If yes: run `python3 ~/.claude/ms-add-scope.py Tasks.ReadWrite` and wait for completion
+4. Tell user: "Run `source ~/.bashrc` in a new terminal, then restart Claude Code for the new scope to take effect."
+5. If no: display the task list as plain text for manual creation and exit.
+
+**Create tasks:**
 For each confirmed task:
 1. Create the task in the configured `task-backend` MCP
 2. If matched to a project: append task ID to that project's `_index.md`

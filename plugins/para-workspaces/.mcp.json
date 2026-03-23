@@ -48,9 +48,9 @@
         "NOTION_API_TOKEN": "${NOTION_API_TOKEN}"
       }
     },
-    "microsoft-graph": {
+    "outlook": {
       "command": "npx",
-      "args": ["-y", "mcp-server-msgraph"],
+      "args": ["-y", "outlook-mcp"],
       "env": {
         "MS_CLIENT_ID": "${MS_CLIENT_ID}",
         "MS_CLIENT_SECRET": "${MS_CLIENT_SECRET}",
