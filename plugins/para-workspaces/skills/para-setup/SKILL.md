@@ -106,6 +106,142 @@ last-updated: {today}
 
 ```
 
+Also create `~/.local/bin/start-brain.sh` (and `chmod +x` it):
+
+```bash
+#!/usr/bin/env bash
+# start-brain.sh — Launch Claude Code in your PARA Second Brain vault
+
+PARA_DIR="${PARA_DIR:-{para-dir}}"
+
+if [ ! -d "$PARA_DIR" ]; then
+  echo "Error: PARA vault not found at $PARA_DIR"
+  echo "Set PARA_DIR in your shell profile to override."
+  exit 1
+fi
+
+cd "$PARA_DIR" || exit 1
+exec claude
+```
+
+If `~/.local/bin` is not already in `$PATH`, add it:
+```bash
+grep -q '\.local/bin' ~/.bashrc || echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.bashrc
+```
+
+Then create a reference note at `{para-dir}/3-resources/tools/start-brain.md`:
+
+```markdown
+---
+type: resource
+topic: tools
+created: {today}
+---
+
+# start-brain.sh
+
+A shell script that launches Claude Code directly inside the PARA vault.
+
+## Location
+`~/.local/bin/start-brain.sh`
+
+## Usage
+\`\`\`bash
+start-brain.sh
+\`\`\`
+
+Reads `$PARA_DIR` (set during setup) so it always opens in the right vault.
+Override at any time by setting `PARA_DIR` in your shell profile.
+```
+
+Also create `{para-dir}/CLAUDE.md`:
+
+```markdown
+# PARA Vault — Claude Instructions
+
+This is a personal knowledge management vault using the PARA system (Projects, Areas, Resources, Archives) and the CODE framework (Capture → Organize → Distill → Express) from Tiago Forte's *Building a Second Brain*.
+
+## Vault Structure
+
+\`\`\`
+0-inbox/        — Unprocessed captures, pending triage
+1-projects/     — Active projects (specific outcome + end date)
+2-areas/        — Ongoing responsibilities (no end date)
+3-resources/    — Reference material by topic
+4-archives/     — Completed/inactive items from all categories
+reviews/        — Weekly, monthly, annual review documents + life goals
+\`\`\`
+
+## Skills to Use
+
+This vault has the `para-workspaces` plugin installed. Always prefer its skills over manual file edits for PARA operations:
+
+| Task | Skill |
+|------|-------|
+| Quick capture / brain dump | `para-workspaces:para-capture` |
+| Process inbox | `para-workspaces:para-inbox` |
+| Create / update / close a project | `para-workspaces:para-project` |
+| Create / update an area | `para-workspaces:para-area` |
+| Create / update a resource | `para-workspaces:para-resource` |
+| View dashboard / priorities | `para-workspaces:para-dashboard` |
+| Search across all items | `para-workspaces:para-search` |
+| Run a weekly/monthly/annual review | `para-workspaces:para-review` |
+| Distill a note (Progressive Summarization) | `para-workspaces:para-distill` |
+| Create output from notes | `para-workspaces:para-express` |
+| Archive an item | `para-workspaces:para-archive` |
+| Manage tasks | `para-workspaces:para-tasks` |
+
+## File Conventions
+
+- All notes are Markdown (`.md`)
+- Files use YAML frontmatter for metadata
+- Dates use ISO format: `YYYY-MM-DD`
+- Project folders live under `1-projects/<project-slug>/`
+- Each project has an `index.md` as its main file
+
+## Common Frontmatter Fields
+
+**Projects:**
+\`\`\`yaml
+---
+type: project
+status: active          # active | on-hold | completed | cancelled
+created: YYYY-MM-DD
+deadline: YYYY-MM-DD    # optional
+outcome: "One sentence describing the specific desired result"
+area: <area-name>       # optional parent area
+---
+\`\`\`
+
+**Areas:**
+\`\`\`yaml
+---
+type: area
+created: YYYY-MM-DD
+last-reviewed: YYYY-MM-DD
+---
+\`\`\`
+
+**Resources:**
+\`\`\`yaml
+---
+type: resource
+topic: <topic>
+created: YYYY-MM-DD
+---
+\`\`\`
+
+## Behavioural Guidelines
+
+- When the user mentions something actionable with a clear outcome, suggest creating a project.
+- When the user mentions an ongoing responsibility, suggest creating an area.
+- When the user shares reference material or a link, suggest capturing it.
+- When asked "what am I working on?" or "what's my focus?", use `para-dashboard`.
+- Keep note content concise — distilled, not verbose.
+- Never delete files outright; archive them instead.
+- Today's date is always available via the `currentDate` context injected at runtime.
+```
+
 ---
 
 ## Step 4: Task Backend
