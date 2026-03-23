@@ -106,22 +106,10 @@ last-updated: {today}
 
 ```
 
-Also create `~/.local/bin/start-brain.sh` (and `chmod +x` it):
+Read the script file and write it to `~/.local/bin/start-brain.sh`, replacing `{para-dir}` with the actual vault path, then `chmod +x` it:
 
-```bash
-#!/usr/bin/env bash
-# start-brain.sh — Launch Claude Code in your PARA Second Brain vault
-
-PARA_DIR="${PARA_DIR:-{para-dir}}"
-
-if [ ! -d "$PARA_DIR" ]; then
-  echo "Error: PARA vault not found at $PARA_DIR"
-  echo "Set PARA_DIR in your shell profile to override."
-  exit 1
-fi
-
-cd "$PARA_DIR" || exit 1
-exec claude
+```
+{skill-base-dir}/references/start-brain.sh
 ```
 
 If `~/.local/bin` is not already in `$PATH`, add it:
