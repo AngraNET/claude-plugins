@@ -24,7 +24,7 @@ $ARGUMENTS
 
 2. Create directory: `{para-dir}/02-areas/{slugified-name}/`
 
-3. Write `_index.md`:
+3. Write `CLAUDE.md`:
 
 ```markdown
 ---
@@ -50,13 +50,13 @@ linked-projects: []
 
 ```
 
-4. Confirm and suggest: "Link projects to this area by setting `area: {name}` in their `_index.md`"
+4. Confirm and suggest: "Link projects to this area by setting `area: {name}` in their `CLAUDE.md`"
 
 ---
 
 ### `view <name>`
 
-1. Find and read the area `_index.md`
+1. Find and read the area `CLAUDE.md`
 2. Display full area card including standard, review frequency, last reviewed date
 3. Find all projects in `01-projects/` where `area:` matches this area name
 4. Show those linked projects with their status and deadlines
@@ -65,7 +65,7 @@ linked-projects: []
 
 ### `update <name>`
 
-1. Read current `_index.md`
+1. Read current `CLAUDE.md`
 2. Interactively update: standard, review-frequency, notes
 3. Update `last-reviewed` if the user is doing a review
 

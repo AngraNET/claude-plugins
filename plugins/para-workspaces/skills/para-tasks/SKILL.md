@@ -84,12 +84,12 @@ Show only tasks due today or overdue across all projects.
 ### `add <project-name> <task>`
 
 1. Check write permission (see Permission Escalation above) before proceeding
-2. Find the project `_index.md` to get its `task-list-id`
+2. Find the project `CLAUDE.md` to get its `task-list-id`
 3. If no `task-list-id` exists, create a new task list in the backend named after the project and save the ID
 4. Create the task in the backend under that project's list
 5. Ask: "Due date? (optional, press enter to skip)"
-6. Append the task ID to the project `_index.md`
-7. Update `next-action` in `_index.md` if this is the first task or user confirms it
+6. Append the task ID to the project `CLAUDE.md`
+7. Update `next-action` in `CLAUDE.md` if this is the first task or user confirms it
 8. Confirm: "Task added to {project-name}"
 
 ---
@@ -99,7 +99,7 @@ Show only tasks due today or overdue across all projects.
 1. Check write permission (see Permission Escalation above) before proceeding
 2. Look up the task by ID or fuzzy name match
 3. Mark it complete via the configured backend
-4. Read the project `_index.md` and recalculate `completion-pct`
-5. Update `last-updated` in `_index.md`
+4. Read the project `CLAUDE.md` and recalculate `completion-pct`
+5. Update `last-updated` in `CLAUDE.md`
 6. If the completed task was the `next-action`, ask: "What's the new next action for this project?"
 7. Confirm: "Marked complete: {task name}"

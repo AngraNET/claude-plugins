@@ -23,7 +23,7 @@ $ARGUMENTS (optional: `--brief` for summary only, `--full` for all details)
    ```
    Otherwise, manually count items in each PARA bucket.
 
-3. Read all `_index.md` files under `01-projects/` and display:
+3. Read all `CLAUDE.md` files under `01-projects/` and display:
    - Project name, status, goal (one line), deadline, completion-pct, next-action
    - Flag projects past their deadline with ⚠ OVERDUE
    - Flag projects not updated in >14 days with ⚡ STALE

@@ -54,16 +54,16 @@ Route this to:
 5. **Based on choice:**
 
    **P - Project**: Show list of active projects. User picks one (or "new project").
-   - Append under `## Notes` in project `_index.md`: `### Capture — {date}\n{content}`
+   - Append under `## Notes` in project `CLAUDE.md`: `### Capture — {date}\n{content}`
    - Delete inbox file.
 
    **A - Area**: Show list of areas. User picks one.
-   - Append to area `_index.md` notes section.
+   - Append to area `CLAUDE.md` notes section.
    - Delete inbox file.
 
    **R - Resource**: Ask for topic name (show existing topics, allow new).
    - If topic exists: append as dated note.
-   - If new: create resource directory and `_index.md`.
+   - If new: create resource directory and `CLAUDE.md`.
    - Delete inbox file.
 
    **S - Someday/Maybe**: Ask for brief label.

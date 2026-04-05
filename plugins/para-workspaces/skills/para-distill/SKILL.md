@@ -33,7 +33,7 @@ Distillation happens in layers, like a map you can zoom to any detail level:
 
 1. Find the target file:
    - If a path is given, read it directly
-   - If a resource/project name, find its `_index.md`
+   - If a resource/project name, find its `CLAUDE.md`
    - If no argument, list recent inbox items and let user pick
 
 2. Read the file content

@@ -31,7 +31,7 @@ You use haiku for speed. Your job is scanning frontmatter, not deep analysis.
 
 ## Health Checks to Run
 
-Read only the YAML frontmatter (first ~20 lines) of each `_index.md` file. Do NOT read full file contents unless needed.
+Read only the YAML frontmatter (first ~20 lines) of each `CLAUDE.md` file. Do NOT read full file contents unless needed.
 
 ### 1. Overdue Projects
 Projects where `deadline` < today AND `status: active`

@@ -183,7 +183,7 @@ This vault has the `para-workspaces` plugin installed. Always prefer its skills 
 
 ## Project File Convention — Source Repository Section
 
-Every project `_index.md` that has an associated source repository **must** include a `## Source Repository` section near the top (after the goal, before Background). This lets Claude find the source without searching.
+Every project `CLAUDE.md` that has an associated source repository **must** include a `## Source Repository` section near the top (after the goal, before Background). This lets Claude find the source without searching.
 
 \`\`\`markdown
 ## Source Repository
@@ -198,7 +198,7 @@ Every project `_index.md` that has an associated source repository **must** incl
 > When asked to commit, push, or edit code for this project — use **Local path** above. Do not search.
 \`\`\`
 
-When creating a new project (`/para:project new`), Claude detects code projects automatically (by keywords such as app, plugin, script, API, repo, build, deploy, library, CLI) or asks the user. If a repository exists, it prompts for VCS type, remote URL, local path, and optional subdirectory before writing `_index.md`.
+When creating a new project (`/para:project new`), Claude detects code projects automatically (by keywords such as app, plugin, script, API, repo, build, deploy, library, CLI) or asks the user. If a repository exists, it prompts for VCS type, remote URL, local path, and optional subdirectory before writing `CLAUDE.md`.
 
 ## File Conventions
 
@@ -206,7 +206,7 @@ When creating a new project (`/para:project new`), Claude detects code projects 
 - Files use YAML frontmatter for metadata
 - Dates use ISO format: `YYYY-MM-DD`
 - Project folders live under `01-projects/<NN>-<project-slug>/` (e.g. `00-my-project`, `01-next-project`)
-- Each project has an `_index.md` as its main file
+- Each project has an `CLAUDE.md` as its main file
 
 ## Common Frontmatter Fields
 

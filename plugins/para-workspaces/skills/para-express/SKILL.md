@@ -45,7 +45,7 @@ If user wants to create something (article, presentation, proposal, report):
 2. Ask: "Which project is this for?" (or "standalone")
 3. Search across PARA for relevant notes:
    - Grep `{para-dir}` for key terms from the deliverable description
-   - Check the project's `_index.md` notes section
+   - Check the project's `CLAUDE.md` notes section
    - Check related resource topics
 4. Present the most relevant notes/excerpts:
 

@@ -89,7 +89,7 @@ $ARGUMENTS
 
 ### `read <project-name>`
 
-1. Find the project `_index.md` — read its title, goal, tags, and `email-threads` list
+1. Find the project `CLAUDE.md` — read its title, goal, tags, and `email-threads` list
 2. Search Gmail via the Gmail MCP:
    - Search for project title in subject/body
    - Fetch any threads listed in `email-threads`
@@ -112,7 +112,7 @@ Older:
 
 ### `compose <project-name>`
 
-1. Read the project `_index.md` for context
+1. Read the project `CLAUDE.md` for context
 2. Ask the user for:
    - To (recipient email or name)
    - Subject (pre-fill with project name if empty)
@@ -121,13 +121,13 @@ Older:
 4. Show draft to user for review/edit
 5. Ask: "Send this email? (y/n)"
 6. If yes, send via Gmail MCP
-7. Ask: "Log this thread to the project? (y/n)" — if yes, append thread ID to `email-threads` in `_index.md`
+7. Ask: "Log this thread to the project? (y/n)" — if yes, append thread ID to `email-threads` in `CLAUDE.md`
 
 ### `log <project-name>`
 
 1. Show recent email threads for this project (same as `read`)
 2. For selected thread(s), ask: "What was the key decision or outcome from this thread?"
-3. Append to the project `_index.md` notes section:
+3. Append to the project `CLAUDE.md` notes section:
 
 ```markdown
 ### Email Decision — {date}
@@ -135,7 +135,7 @@ Thread: "{subject}"
 Decision: {user's summary}
 ```
 
-4. Also append thread ID to `email-threads` in `_index.md` if not already there
+4. Also append thread ID to `email-threads` in `CLAUDE.md` if not already there
 
 ### `triage [limit]`
 
@@ -211,5 +211,5 @@ If missing:
 **Create tasks:**
 For each confirmed task:
 1. Create the task in the configured `task-backend` MCP
-2. If matched to a project: append task ID to that project's `_index.md`
+2. If matched to a project: append task ID to that project's `CLAUDE.md`
 3. Show a brief confirmation summary when done

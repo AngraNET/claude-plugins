@@ -65,11 +65,11 @@ For each completed or suspended project:
 
 **2C. Update Project Outcomes**
 For each active project, ensure:
-- The goal statement from your Life Goals is visible within the project `_index.md`
+- The goal statement from your Life Goals is visible within the project `CLAUDE.md`
 - The `outcome` field describes the specific end state, not the work to be done
 
 **2D. Prioritize Projects Globally**
-Read all active project `_index.md` files. Assign overall priority (high/medium/low/someday-maybe). Reorder from most to least important.
+Read all active project `CLAUDE.md` files. Assign overall priority (high/medium/low/someday-maybe). Reorder from most to least important.
 
 This prevents **priority drift** — the gradual, unnoticed escalation of tasks. Ask: "Are all of these projects truly active, or have some quietly become Someday/Maybe items?"
 
@@ -80,7 +80,7 @@ Ask: "Are your projects reflected in all the tools you use (task manager, notes 
 
 ### Step 3: Review and Update Areas of Responsibility
 
-Read all area `_index.md` files. For each area, ask:
+Read all area `CLAUDE.md` files. For each area, ask:
 - "Is the standard being met?" (read the `standard` field)
 - "Any new tasks, projects, habits, or decisions needed to maintain this area?"
 - "Are there any new areas of responsibility that aren't captured yet?"

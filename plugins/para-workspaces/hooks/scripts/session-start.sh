@@ -27,15 +27,15 @@ if [ ! -d "$PARA_DIR" ]; then
 fi
 
 # Count items in each bucket
-PROJECTS=$(find "$PARA_DIR/01-projects" -name "_index.md" 2>/dev/null | wc -l | tr -d ' ')
-AREAS=$(find "$PARA_DIR/02-areas" -name "_index.md" 2>/dev/null | wc -l | tr -d ' ')
-RESOURCES=$(find "$PARA_DIR/03-resources" -name "_index.md" 2>/dev/null | wc -l | tr -d ' ')
+PROJECTS=$(find "$PARA_DIR/01-projects" -name "CLAUDE.md" 2>/dev/null | wc -l | tr -d ' ')
+AREAS=$(find "$PARA_DIR/02-areas" -name "CLAUDE.md" 2>/dev/null | wc -l | tr -d ' ')
+RESOURCES=$(find "$PARA_DIR/03-resources" -name "CLAUDE.md" 2>/dev/null | wc -l | tr -d ' ')
 INBOX=$(find "$PARA_DIR/00-inbox" -name "*.md" 2>/dev/null | wc -l | tr -d ' ')
 
 # Count overdue projects (deadline < today)
 TODAY=$(date +%Y-%m-%d)
 OVERDUE=0
-for f in "$PARA_DIR/01-projects/"*/_index.md; do
+for f in "$PARA_DIR/01-projects/"*/CLAUDE.md; do
   [ -f "$f" ] || continue
   STATUS=$(grep "^status:" "$f" | awk '{print $2}' | tr -d '"')
   DEADLINE=$(grep "^deadline:" "$f" | awk '{print $2}' | tr -d '"')
@@ -59,7 +59,7 @@ fi
 # Find most urgent project (earliest deadline)
 URGENT=""
 URGENT_DEADLINE=""
-for f in "$PARA_DIR/01-projects/"*/_index.md; do
+for f in "$PARA_DIR/01-projects/"*/CLAUDE.md; do
   [ -f "$f" ] || continue
   STATUS=$(grep "^status:" "$f" | awk '{print $2}' | tr -d '"')
   [ "$STATUS" != "active" ] && continue

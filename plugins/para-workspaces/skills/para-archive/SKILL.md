@@ -28,13 +28,13 @@ Examples:
    - `resource` → `{para-dir}/03-resources/{name}/`
    - Use fuzzy matching if exact name not found
 
-3. Read the existing `_index.md`
+3. Read the existing `CLAUDE.md`
 
 4. Ask the user:
    - "Reason for archiving?" (completed / inactive / cancelled / replaced)
    - If project: "What was the final outcome?" (optional)
 
-5. Update `_index.md` frontmatter with:
+5. Update `CLAUDE.md` frontmatter with:
    ```yaml
    archived-at: {today}
    archived-reason: "{reason}"

@@ -32,7 +32,7 @@ Manage projects in the PARA system.
 
 3. **Detect or ask about a source repository:**
    - If the project name, goal, or context suggests a code project (e.g. mentions of app, plugin, script, API, repo, build, deploy, library, CLI), ask: "Does this project have a source repository?"
-   - Otherwise skip this question (repository section will be omitted from `_index.md`)
+   - Otherwise skip this question (repository section will be omitted from `CLAUDE.md`)
    - If yes, ask for:
      - **VCS type**: git / mercurial / svn / other / none
      - **Remote URL**: (e.g. `github.com/org/repo`) — optional
@@ -50,7 +50,7 @@ Manage projects in the PARA system.
 4. Create directory: `{para-dir}/01-projects/{NN}-{slugified-name}/`
    Also create: `{para-dir}/01-projects/{NN}-{slugified-name}/packets/` (for Intermediate Packets)
 
-5. Write `_index.md`:
+5. Write `CLAUDE.md`:
 
 ```markdown
 ---
@@ -111,7 +111,7 @@ review-log: []
 ### `view <name>`
 
 1. Find the project (fuzzy match)
-2. Read `_index.md` and display:
+2. Read `CLAUDE.md` and display:
    - All frontmatter fields in a readable layout
    - Days until deadline (or overdue by N days)
    - Full notes content
@@ -124,7 +124,7 @@ review-log: []
 
 ### `update <name>`
 
-1. Read current `_index.md`
+1. Read current `CLAUDE.md`
 2. Ask which fields to update (show current values)
 3. Common updates: status, completion-pct, next-action, deadline, notes, goal
 4. Update `last-updated` to today
@@ -134,7 +134,7 @@ review-log: []
 
 ### `list`
 
-Read all `_index.md` files in `01-projects/`. Display sorted by priority then deadline:
+Read all `CLAUDE.md` files in `01-projects/`. Display sorted by priority then deadline:
 
 ```
 Active Projects
@@ -167,7 +167,7 @@ For each:
 
 ### `close <name>`
 
-1. Read the project `_index.md`
+1. Read the project `CLAUDE.md`
 2. Ask: "What was the final outcome?" (record in `outcome` field)
 3. Set `status: complete`, `completion-pct: 100`, `last-updated: today`
 4. Ask: "Archive this project? (y/n)"

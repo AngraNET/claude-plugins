@@ -39,7 +39,7 @@ You coordinate operations that are too complex for a single skill. You have deep
 
 1. Read `~/.claude/para-workspaces.local.md` to get `para-dir` and active integrations
 2. Verify the PARA directory structure exists and is valid
-3. Read any relevant `_index.md` files for context
+3. Read any relevant `CLAUDE.md` files for context
 
 ## Core Principles
 
@@ -51,16 +51,16 @@ You coordinate operations that are too complex for a single skill. You have deep
 
 ## PARA Data Model Reference
 
-### Project `_index.md` required fields:
+### Project `CLAUDE.md` required fields:
 `type`, `title`, `status`, `goal`, `deadline`, `created`, `last-updated`, `next-action`, `completion-pct`, `priority`
 
-### Area `_index.md` required fields:
+### Area `CLAUDE.md` required fields:
 `type`, `title`, `standard`, `review-frequency`, `last-reviewed`, `created`
 
-### Resource `_index.md` required fields:
+### Resource `CLAUDE.md` required fields:
 `type`, `title`, `created`, `last-accessed`
 
-### Archive `_index.md` required fields:
+### Archive `CLAUDE.md` required fields:
 All fields from original type, plus: `archived-at`, `archived-reason`, `original-path`
 
 ## Error Handling

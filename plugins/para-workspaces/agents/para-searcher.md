@@ -56,19 +56,19 @@ Results for: "{query}"  ({N} total)
 
 📂 PROJECTS
   Website Redesign  [title match]
-  ~/para/01-projects/website-redesign/_index.md
+  ~/para/01-projects/website-redesign/CLAUDE.md
 
   SEO Campaign  [body: line 42]
-  ~/para/01-projects/seo-campaign/_index.md
+  ~/para/01-projects/seo-campaign/CLAUDE.md
   → "...focus on {query} optimization..."
 
 📚 RESOURCES
   CSS Reference  [tag match: 'frontend']
-  ~/para/03-resources/css-reference/_index.md
+  ~/para/03-resources/css-reference/CLAUDE.md
 
 🗃 ARCHIVES (older)
   Old Website Project  [title match]
-  ~/para/04-archives/2025-11/old-website/_index.md
+  ~/para/04-archives/2025-11/old-website/CLAUDE.md
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
 

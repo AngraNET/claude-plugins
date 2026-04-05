@@ -66,13 +66,13 @@ If user confirms, perform the routing. If user disagrees, ask where it should go
 
 ## Routing Actions
 
-**To a project**: Read the project `_index.md`, append content under a `### Capture — {date}` heading in the Notes section. Delete inbox file.
+**To a project**: Read the project `CLAUDE.md`, append content under a `### Capture — {date}` heading in the Notes section. Delete inbox file.
 
-**To an area**: Same as project, append to area `_index.md` notes. Delete inbox file.
+**To an area**: Same as project, append to area `CLAUDE.md` notes. Delete inbox file.
 
 **To a resource (existing topic)**: Append as a dated note. Delete inbox file.
 
-**To a resource (new topic)**: Create new resource directory and `_index.md`, populate with the content. Delete inbox file.
+**To a resource (new topic)**: Create new resource directory and `CLAUDE.md`, populate with the content. Delete inbox file.
 
 **As a task**: Create task in task backend under the specified project list (or a "Standalone" list if no project). Delete inbox file.
 

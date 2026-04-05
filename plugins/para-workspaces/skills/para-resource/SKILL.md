@@ -24,7 +24,7 @@ $ARGUMENTS
 
 2. Create directory: `{para-dir}/03-resources/{slugified-topic}/`
 
-3. Write `_index.md`:
+3. Write `CLAUDE.md`:
 
 ```markdown
 ---
@@ -55,7 +55,7 @@ tags: []
 
 ### `view <topic>`
 
-1. Find and read the resource `_index.md` (fuzzy match on topic name)
+1. Find and read the resource `CLAUDE.md` (fuzzy match on topic name)
 2. Update `last-accessed` to today
 3. Display full content
 

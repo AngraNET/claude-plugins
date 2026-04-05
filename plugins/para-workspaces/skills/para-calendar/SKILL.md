@@ -61,7 +61,7 @@ After approval: `source ~/.bashrc` and proceed.
    - **Google:** `list_events` with `timeMin` and `timeMax` for today
    - **Outlook:** `list_calendar_events` with `startDateTime` and `endDateTime` for today
 2. For each event, check if it matches any PARA project:
-   - Look at `calendar-events` in all project `_index.md` files
+   - Look at `calendar-events` in all project `CLAUDE.md` files
    - Or fuzzy match event title against project names
 3. Display:
 
@@ -87,7 +87,7 @@ Same as `view today` but for the full current week. Group by day.
 
 ### `view <project-name>`
 
-1. Read the project `_index.md` to get `calendar-events` list
+1. Read the project `CLAUDE.md` to get `calendar-events` list
 2. Fetch those specific events from the calendar backend by ID
 3. Also search for events with the project name in the title
 4. Display upcoming and recent past events for this project
@@ -103,7 +103,7 @@ Same as `view today` but for the full current week. Group by day.
    - Description (optional)
    - Link to a PARA project? (optional — show project list)
 3. Create the event via the configured backend
-4. If linked to a project, append the event ID to `calendar-events` in `_index.md`
+4. If linked to a project, append the event ID to `calendar-events` in `CLAUDE.md`
 5. Confirm: "Event created: {title} on {date}"
 
 ---
@@ -112,5 +112,5 @@ Same as `view today` but for the full current week. Group by day.
 
 1. Show today's and this week's unlinked calendar events
 2. Ask user which event(s) to link to the project
-3. Update the project `_index.md` `calendar-events` list with the selected event IDs
+3. Update the project `CLAUDE.md` `calendar-events` list with the selected event IDs
 4. Confirm linkage
