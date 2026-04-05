@@ -181,7 +181,11 @@ This vault has the `para-workspaces` plugin installed. Always prefer its skills 
 | Archive an item | `para-workspaces:para-archive` |
 | Manage tasks | `para-workspaces:para-tasks` |
 
-## Project File Convention — Source Repository Section
+## Working with Projects
+
+Claude is always launched from the vault root, not from individual project directories. When working on or discussing any project, always read that project's `CLAUDE.md` first (at `01-projects/<NN>-<slug>/CLAUDE.md`). It contains the project's goal, backlog, key decisions, and — for code projects — the `Local source` path to use for git operations. Never search for repos.
+
+### Source Repository Section
 
 Every project `CLAUDE.md` that has an associated source repository **must** include a `## Source Repository` section near the top (after the goal, before Background). This lets Claude find the source without searching.
 
@@ -252,6 +256,8 @@ On startup in this vault:
 5. Read memory from `{para-dir}/06-memory/` at the start of each session.
 
 Always write new memories to `{para-dir}/06-memory/` and keep `{para-dir}/06-memory/MEMORY.md` up to date as the index.
+
+**Important:** Project-specific information (status, plans, known issues, backlog) belongs in the project's own `CLAUDE.md`, not in `06-memory/`. Only use `06-memory/` for cross-cutting concerns: user preferences, feedback, and references.
 
 ## Behavioural Guidelines
 
